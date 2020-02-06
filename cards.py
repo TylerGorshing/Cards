@@ -1,5 +1,5 @@
 '''
-A learning exercise to learn OOP in python.
+An OOP learning excersie in python.
 
 '''
 
@@ -31,7 +31,7 @@ class Card():
 
     @property
     def value(self):
-        '''Returns the numerical value of the card. Returns None if self.hidden=True'''
+        '''Returns the numerical value of the card. Returns None if self.hidden is set to True'''
         if not self._hidden:
             return self._value
         else:
@@ -39,7 +39,7 @@ class Card():
 
     @property
     def suit(self):
-        '''Returns the suit of the card. Returns None if self.hidden=True'''
+        '''Returns the suit of the card. Returns None if self.hidden is set to True'''
         if not self._hidden:
             return self._suit
         else:
@@ -59,8 +59,9 @@ class Card():
         return self
 
     def changeHidden(self, hidden=None):
-        '''Changes the value of self.hidden. This is like revieling a playing card from a players hand
-        or turning over a face down card.'''
+        '''Changes the value of hidden. This is like showing a card from a players hand
+        or revealing a face down card.
+        '''
         if hidden is None:
             self._hidden = not self._hidden
             return self
@@ -97,7 +98,7 @@ class Card():
         on the value of the card and nothing else. Bacause of this, two cards are equal
         if they have the same value but not necessarly the same suit.
 
-        Card(4, 'Spades') == Cards(4, 'Hearts') # This will return true
+        Card(4, 'Spades') == Cards(4, 'Hearts') will return True
 
     '''
 
