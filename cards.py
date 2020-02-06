@@ -149,14 +149,16 @@ class Collection():
 
     def reveal(self) -> None:
         '''Sets the hidden attribut of all card objects to False.
-        This is like showing your hand to another player or looking throuhg a deck of cards.'''
+        This is like showing your hand to another player or looking throuhg a deck of cards.
+        '''
         for card in self.cards:
             card.hidden = False
 
     def hide(self) -> None:
         '''Sets the hidden attribute of all card objects to True.
-        Like turning a card over or hiding a card from another player.'''
-        for card in self.hand.cards:
+        Like hiding a card from another player.
+        '''
+        for card in self.cards:
             card.hidden = True
 
     def show(self):
@@ -166,7 +168,7 @@ class Collection():
             card.show()
 
     def discard(self):
-        '''Empties the entire collection of cards. The cards are removed from the program.'''
+        '''Empties the entire collection of cards. The Card instances are removed from the program.'''
 
         self.cards.clear()
 
