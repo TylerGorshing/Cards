@@ -57,7 +57,7 @@ Returns the same card instance that called the method
 Parameters:
 - **hidden** (bool) - The value that `hidden` is changed to. If `None`, flips to the opposite value.
 
-Other Notes:
+**Other Notes:**
 
 This class also implements the ordering magic methods. Only the `value` of the card object is used in determining an order.
 
@@ -73,7 +73,7 @@ Example:
     >>> card_a == card_c
     True
 
-The first class defined in the program is the Card class. As the name implies, the Card class defines a playing card. Each card has a suit and a value, and can be visable to players or hidden from view. This class uses non-public variables that are accessed with the `@property` decorator and are madified with a setter. I don't think using the property decorator is necessary (or even optimal in this case), but I wanted to try it here.
+The first class defined in the program is the Card class. As the name implies, the Card class defines a playing card. Each card has a suit and a value, and can be visable to players or hidden from view. This class uses non-public variables that are accessed with the `@property` decorator and are modifed with a setter. I don't think using the property decorator is necessary (or even optimal in this case), but I wanted to try it here.
 
 There are two custom methods. The first changes the hidden state of the card (kind of like revealing a face-down card to all players), and the second prints information about the card to the terminal.
 
