@@ -95,13 +95,69 @@ Sets the `hidden` attribute for every card in the `cards` list to `True`.
 #### `show()`
 Prints information about each card object in the `cards` list. This calls the `show()` method on each card object.
 
-#### 'shuffle()'
+#### `shuffle()`
 Randomizes the order of the `cards` list. This is like shuffling a deck of cards.
 
 #### Other Notes
 This class also defines the `len()` magic method as well as the `+` operation. See the Deck class for examples. 
 
 ### The Deck Class
+
+Examples:
+```
+>>> from cards import *
+>>> deck_a = Deck()
+>>> deck_a.show()
+Ace of Spades
+2 of Spades
+3 of Spades
+...
+10 of Clubs
+Jack of Clubs
+Queen of Clubs
+King of Clubs
+
+>>> deck_a.shuffle()
+>>> deck_a.show()
+6 of Clubs
+8 of Diamonds
+7 of Hearts
+3 of Spades
+...
+10 of Hearts
+4 of Spades
+6 of Spades
+3 of Clubs
+
+>>> deck_b = Deck()
+>>> deck_b.hide()
+>>> deck_b.show()
+This card is hidden.
+This card is hidden.
+...
+This card is hidden.
+This card is hidden.
+
+>>> len(deck_a)
+52
+>>> len(deck_b)
+52
+>>> deck_c = deck_a + deck_b
+>>> len(deck_c)
+104
+
+>>> deck_c.shuffle()
+>>> deck_c.show() # The cards from deck_b are still hidden
+This card is hidden.
+This card is hidden.
+7 of Spades
+This card is hidden.
+...
+8 of Spades
+4 of Spades
+This card is hidden.
+This card is hidden.
+```
 
 The Deck class describes a deck of playing cards. Because a Deck object inharits from the Collection Class, it only needs two additional methods. One methong, `build`, fills the deck with the 52 standard playing cards. The other method, `reset`, resets the deck with the original 52 playing cards.
 
