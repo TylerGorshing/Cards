@@ -48,7 +48,7 @@ Parameters:
 
 Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
 
-`changeHidden(hidden=none)`
+> **changeHidden**(*hidden=none*)
 
 Changes the value of `hidden`. 
 
@@ -73,17 +73,11 @@ Example:
     >>> card_a == card_c
     True
 
-The first class defined in the program is the Card class. As the name implies, the Card class defines a playing card. Each card has a suit and a value, and can be visable to players or hidden from view. This class uses non-public variables that are accessed with the `@property` decorator and are modifed with a setter. I don't think using the property decorator is necessary (or even optimal in this case), but I wanted to try it here.
-
-There are two custom methods. The first changes the hidden state of the card (kind of like revealing a face-down card to all players), and the second prints information about the card to the terminal.
-
-Lastly, the class uses magic methods to define an order so that different instances can be compared.
-
 ### The Collection Class
 
-I wanted to use inharitance in this excercise, so the Collection class is meant to be a base class for anything that holds Card objects, ie. a deck of cards. When designing this class, I tried to keep everything as general as possible. There are a few methods that can be used on any set of cards such as shuffling the order of the cards or revealing all the cards to a player.
+*class* `cards.Collection(value, suit, hidden=False)`
 
-This is the parent class for a Deck object, and is also subclassed in other projects I've worked on.
+
 
 ### The Deck Class
 
