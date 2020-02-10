@@ -24,21 +24,20 @@ The code for this little program isn’t too complicated. There are a few custom
 
 ### The Card Class
 
-*class* cards.Card(value, suit, hidden=False)
+*class* `cards.Card(value, suit, hidden=False)`
 
 This class represents a standard playing card. The card can also be hidden from view if needed.
 
 Example:
 
-```
->>> from cards import Card
->>> card = Card(1, 'Spades') # An ace of Spades 
->>> card.show()
-Ace of Spades
->>> card.hidden = True
->>> card.show()
-This card is hidden.
-```
+    >>> from cards import Card
+    >>> card = Card(1, 'Spades') # An ace of Spades 
+    >>> card.show()
+    Ace of Spades
+    >>> card.hidden = True
+    >>> card.show()
+    This card is hidden.
+
 
 Parameters:
 - **value** (int) - The value of the card. For a standard deck of playing cards, 1 is ace, 11 is Jack, 12 is Queen, and 13 is King.
