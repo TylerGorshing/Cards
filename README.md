@@ -24,9 +24,9 @@ The code for this little program isn’t too complicated. There are a few custom
 
 ### The Card Class
 
-#### *class* `cards.Card(value, suit, hidden=False)`
-
 This class represents a standard playing card. The card can also be hidden from view if needed.
+
+#### *class* `cards.Card(value, suit, hidden=False)`
 
 Example:
 ```
@@ -40,12 +40,9 @@ This card is hidden.
 ```
 
 Parameters:
-- **value** (int)
-    The value of the card. For a standard deck of playing cards, 1 is ace, 11 is Jack, 12 is Queen, and 13 is King.
-- **suit** (str)
-    The suit of the card. Generally, the four suits are `'Spades'`, `'Hearts'`, `'Diamonds'`, and `'Clubs'`.
-- **hidden** (bool)
-    If `False` (the default), details aobut the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
+- **value** (int) - The value of the card. For a standard deck of playing cards, 1 is ace, 11 is Jack, 12 is Queen, and 13 is King.
+- **suit** (str) - The suit of the card. Generally, the four suits are `'Spades'`, `'Hearts'`, `'Diamonds'`, and `'Clubs'`.
+- **hidden** (bool) - If `False` (the default), details aobut the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
 
 
 #### `show()`
@@ -55,28 +52,54 @@ Prints information about the card to the terminal. If `hidden` is False, prints 
 Changes the value of `hidden`. Returns the same card instance that called the method
 
 Parameters:
-- **hidden** (bool) - The value that `hidden` is changed to. If `None`, flips to the opposite value.
+- **hidden** (bool or None) - The value that `hidden` is changed to. If `None` (the default), hidden flips to the opposite bool.
 
 #### Other Notes
 This class also implements the ordering magic methods. Only the `value` of the card object is used in determining an order.
 
 Example:
-
-    >>> card_a = Card(3, 'Hearts')
-    >>> card_b = Card(8, 'Diamonds')
-    >>> card_a == card_b
-    False
-    >>> card_a < card_b
-    True
-    >>> card_c = Card(3, 'Spades')
-    >>> card_a == card_c
-    True
+```
+>>> card_a = Card(3, 'Hearts')
+>>> card_b = Card(8, 'Diamonds')
+>>> card_a == card_b
+False
+>>> card_a < card_b
+True
+>>> card_c = Card(3, 'Spades')
+>>> card_a == card_c
+True
+```
 
 ### The Collection Class
 
-*class* `cards.Collection(cards=None, replacement=False)`
+This class is a parent class for any object whose purpose is to hold cards like a deck of playing cards or a player's hand in a game.
 
+#### *class* `cards.Collection(cards=None, replacement=False)`
 
+Parameters: 
+- **cards** (list or None) - A list of playing cards held by the Collection object. If `None` (the default), then the Collection object is initialized with an empty list to be filled with cards at a later time.
+- **replacement** (bool) - Determines if cards are drawn from the collection with or without replacement. If `False` (the default), then cards are drawn without replacement. Cards are drawn with replacement is replacement is set to `True`.
+
+#### `discard()`
+Empties the `cards` list. If there are no more references to any of the card objects, I think they're garbage collected by python.
+
+#### `draw()`
+Returns a card object from the `cards` list. If `replacement` is set to `False`, the first card object in the `cards` list is removed and that card is returned. If `replacement` is set to `True`, a random card in the `cards` list is returned *without* removing it from the list.
+
+#### `hide()`
+Sets the `hidden` attribute for every card in the `cards` list to `True`.
+
+#### `reveal()`
+Sets the `hidden` attribute for every card in the `cards` list to `True`.
+
+#### `show()`
+Prints information about each card object in the `cards` list. This calls the `show()` method on each card object.
+
+#### 'shuffle()'
+Randomizes the order of the `cards` list. This is like shuffling a deck of cards.
+
+#### Other Notes
+This class also defines the `len()` magic method as well as the `+` operation. See the Deck class for examples. 
 
 ### The Deck Class
 
