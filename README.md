@@ -45,13 +45,15 @@ Parameters:
 - **hidden** (bool) - If `False` (the default), details aobut the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
 
 
-#### `show()`
+##### `show()`
 Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
 
-#### **changeHidden**(*hidden=none*) - Changes the value of `hidden`. Returns the same card instance that called the method
+##### **changeHidden**(*hidden=none*)
+Changes the value of `hidden`. Returns the same card instance that called the method
 
 Parameters:
-- **hidden** (bool) - The value that `hidden` is changed to. If `None`, flips to the opposite value.
+- **hidden** (bool)
+The value that `hidden` is changed to. If `None`, flips to the opposite value.
 
 **Other Notes:**
 
