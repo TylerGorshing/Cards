@@ -107,6 +107,9 @@ Examples:
 ```
 >>> from cards import *
 >>> deck_a = Deck()
+>>> len(deck_a)
+52
+
 >>> deck_a.show()
 Ace of Spades
 2 of Spades
@@ -138,10 +141,6 @@ This card is hidden.
 This card is hidden.
 This card is hidden.
 
->>> len(deck_a)
-52
->>> len(deck_b)
-52
 >>> deck_c = deck_a + deck_b
 >>> len(deck_c)
 104
