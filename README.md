@@ -7,7 +7,7 @@ As I continued to learn more and more about programming, I discovered the concep
 
 Programing a deck of cards in python is a great way to learn some of the concepts of OOP. A single playing card has two main attributes: suit and value. A deck is composed of 52 card objects and can have various methods like shuffling the deck or drawing a card from the top of the deck. I was even able to use inheritance, magic methods, and property decorators in this exercise.
 
-I don't really know if what I've done is the best or most conventional way of OOP in python, but it's functional.
+I don't really know if what I've done is the best or most conventional way of OOP in python, but the program is functional.
 
 ## Learning Goals
 
@@ -29,34 +29,35 @@ The code for this little program isn’t too complicated. There are a few custom
 This class represents a standard playing card. The card can also be hidden from view if needed.
 
 Example:
-
-    >>> from cards import Card
-    >>> card = Card(1, 'Spades') # An ace of Spades 
-    >>> card.show()
-    Ace of Spades
-    >>> card.hidden = True
-    >>> card.show()
-    This card is hidden.
-
+```
+>>> from cards import Card
+>>> card = Card(1, 'Spades') # An ace of Spades 
+>>> card.show()
+Ace of Spades
+>>> card.hidden = True
+>>> card.show()
+This card is hidden.
+```
 
 Parameters:
-- **value** (int) - The value of the card. For a standard deck of playing cards, 1 is ace, 11 is Jack, 12 is Queen, and 13 is King.
-- **suit** (str) - The suit of the card. Generally, the four suits are `'Spades'`, `'Hearts'`, `'Diamonds'`, and `'Clubs'`.
-- **hidden** (bool) - If `False` (the default), details aobut the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
+- **value** (int)
+    The value of the card. For a standard deck of playing cards, 1 is ace, 11 is Jack, 12 is Queen, and 13 is King.
+- **suit** (str)
+    The suit of the card. Generally, the four suits are `'Spades'`, `'Hearts'`, `'Diamonds'`, and `'Clubs'`.
+- **hidden** (bool)
+    If `False` (the default), details aobut the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
 
 
 #### `show()`
-Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
+- Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
 
 #### `changeHidden(hidden=none)`
-Changes the value of `hidden`. Returns the same card instance that called the method
+- Changes the value of `hidden`. Returns the same card instance that called the method
 
-Parameters:
-- **hidden** (bool)
-The value that `hidden` is changed to. If `None`, flips to the opposite value.
+    Parameters:
+    - **hidden** (bool) - The value that `hidden` is changed to. If `None`, flips to the opposite value.
 
 #### Other Notes
-
 This class also implements the ordering magic methods. Only the `value` of the card object is used in determining an order.
 
 Example:
@@ -73,7 +74,7 @@ Example:
 
 ### The Collection Class
 
-*class* `cards.Collection(value, suit, hidden=False)`
+*class* `cards.Collection(cards=None, replacement=False)`
 
 
 
