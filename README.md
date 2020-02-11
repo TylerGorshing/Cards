@@ -37,7 +37,21 @@ Parameters:
 - **suit** (str) - The suit of the card. Generally, the four suits are `'Spades'`, `'Hearts'`, `'Diamonds'`, and `'Clubs'`.
 - **hidden** (bool) - If `False` (the default), details about the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
 
-Example:
+#### `show()`
+Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
+
+#### `changeHidden(hidden=none)`
+Changes the value of `hidden`. Returns the same card instance that called the method
+
+Parameters:
+- **hidden** (bool or None) - The value that `hidden` is changed to. If `None` (the default), this method flips `hidden` to the opposite bool.
+
+### Other Notes
+This class also implements the ordering magic methods. Only the `value` of the card object is used in determining an order. See examples below.
+
+### Examples:
+
+Creating and using card objects:
 ```
 >>> from cards import Card
 >>> card = Card(1, 'Spades') # An ace of Spades 
@@ -48,19 +62,7 @@ Ace of Spades
 This card is hidden.
 ```
 
-### `show()`
-Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
-
-### `changeHidden(hidden=none)`
-Changes the value of `hidden`. Returns the same card instance that called the method
-
-Parameters:
-- **hidden** (bool or None) - The value that `hidden` is changed to. If `None` (the default), this method flips `hidden` to the opposite bool.
-
-### Other Notes
-This class also implements the ordering magic methods. Only the `value` of the card object is used in determining an order.
-
-Example:
+Implementing the ordering methods:
 ```
 >>> card_a = Card(3, 'Hearts') # 3 of Hearts
 >>> card_b = Card(8, 'Diamonds') # 8 of Diamonds
@@ -83,22 +85,22 @@ Parameters:
 - **cards** (list or None) - A list of playing cards held by the Collection object. If `None` (the default), then the Collection object is initialized with an empty list to be filled with cards at a later time.
 - **replacement** (bool) - Determines if cards are drawn from the collection with or without replacement. If `False` (the default), then cards are drawn without replacement. Cards are drawn with replacement is replacement is set to `True`.
 
-### `discard()`
+#### `discard()`
 Empties the `cards` list. If there are no more references to any of the card objects, I think they're garbage collected by python.
 
-### `draw()`
+#### `draw()`
 Returns a card object from the `cards` list. If `replacement` is set to `False`, the first card object in the `cards` list is removed and that card is returned. If `replacement` is set to `True`, a random card in the `cards` list is returned *without* removing it from the list.
 
-### `hide()`
+#### `hide()`
 Sets the `hidden` attribute for every card in the `cards` list to `True`.
 
-### `reveal()`
+#### `reveal()`
 Sets the `hidden` attribute for every card in the `cards` list to `False`.
 
-### `show()`
+#### `show()`
 Prints information about each card object in the `cards` list. This calls the `show()` method on each card object.
 
-### `shuffle()`
+#### `shuffle()`
 Randomizes the order of the `cards` list. This is like shuffling a deck of cards.
 
 ### Other Notes
@@ -113,7 +115,13 @@ A standard deck of 52 playing cards. This class extends the `Collection` class, 
 Parameters:
 - **cards** (list or None) - A list of playing cards to be placed in the Deck at construction. If `None` (the default), the deck is constructed with the standard set of 52 playing cards.
 
-Examples:
+#### `build()`
+Adds the 52 standard playing card objects to the deck *without* removing any cards already in the deck. To remove the cards already in the deck, see the `reset()` method.
+
+#### `reset()`
+Resets the deck object to a standard deck of 52 playing cards. This removes all card objects from the deck then fills the empty deck with 52 playing cards.
+
+### Examples
 ```
 >>> from cards import *
 >>> deck_a = Deck()
@@ -167,9 +175,3 @@ This card is hidden.
 This card is hidden.
 This card is hidden.
 ```
-
-### `build()`
-Adds the 52 standard playing card objects to the deck *without* removing any cards already in the deck. To remove the cards already in the deck, see the `reset()` method.
-
-### `reset()`
-Resets the deck object to a standard deck of 52 playing cards. This removes all card objects from the deck then fills the empty deck with 52 playing cards.
