@@ -7,16 +7,20 @@ As I continued to learn more and more about programming, I discovered the concep
 
 Programing a deck of cards in python is a great way to learn some of the concepts of OOP. A single playing card has two main attributes: suit and value. A deck is composed of 52 card objects and can have various methods like shuffling the deck or drawing a card from the top of the deck. I was even able to use inheritance, magic methods, and property decorators in this exercise.
 
-I don't really know if what I've done is the best or most conventional way of OOP in python, but the program is functional.
-
-## Learning Goals
+### Learning Goals
 
 Primarily, I wanted to learn how object oriented programming works in python. My goals were as follows:
 
 - Familiarize myself with creating objects and using instances in a python program
 - Understand the syntax and process of defining a custom class and its behavior
-- Modify the behavior of a custom class using the __init__() method and other magic methods in python
+- Modify the behavior of a custom class using the `__init__()` method and other magic methods in python
 - Use inheritance to better organize my code
+
+### How to Improve
+
+Like with any learning project, my skills imporved significanly while working on this program, and as such, I can see many areas with flawed code that may or may not create bugs, places where I didn't follow proper conventions layed out in PEP8, or structural flaws that limit how the program can be scaled for use in other applications. 
+
+All that being said, my goal was not to creat a *perfect* program, but rather use the concepts of OOP in python to make a *functional* program, and that's exaclty what I've done. I could spend more time on this program making it come closer to perfection, but I've decided to use what I've learned and move on to other programs.
 
 ## About the Code
 
@@ -24,7 +28,7 @@ The code for this little program isn’t too complicated. There are a few custom
 
 ### The Card Class
 
-This class represents a standard playing card. The card can also be hidden from view if needed.
+This class represents a standard playing card. The card can be hidden from view if needed.
 
 #### *class* `cards.Card(value, suit, hidden=False)`
 
