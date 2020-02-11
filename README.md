@@ -1,5 +1,5 @@
 # Cards
-A exercise in learning OOP in Python
+An OOP learning exsercise in Python.
 
 ### About the Project
 
@@ -32,6 +32,11 @@ This class represents a standard playing card. The card can be hidden from view 
 
 ### *class* `cards.Card(value, suit, hidden=False)`
 
+Parameters:
+- **value** (int) - The value of the card. For a standard deck of playing cards, 1 is ace, 11 is Jack, 12 is Queen, and 13 is King.
+- **suit** (str) - The suit of the card. Generally, the four suits are `'Spades'`, `'Hearts'`, `'Diamonds'`, and `'Clubs'`.
+- **hidden** (bool) - If `False` (the default), details about the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
+
 Example:
 ```
 >>> from cards import Card
@@ -43,12 +48,6 @@ Ace of Spades
 This card is hidden.
 ```
 
-Parameters:
-- **value** (int) - The value of the card. For a standard deck of playing cards, 1 is ace, 11 is Jack, 12 is Queen, and 13 is King.
-- **suit** (str) - The suit of the card. Generally, the four suits are `'Spades'`, `'Hearts'`, `'Diamonds'`, and `'Clubs'`.
-- **hidden** (bool) - If `False` (the default), details aobut the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
-
-
 ### `show()`
 Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
 
@@ -56,20 +55,20 @@ Prints information about the card to the terminal. If `hidden` is False, prints 
 Changes the value of `hidden`. Returns the same card instance that called the method
 
 Parameters:
-- **hidden** (bool or None) - The value that `hidden` is changed to. If `None` (the default), hidden flips to the opposite bool.
+- **hidden** (bool or None) - The value that `hidden` is changed to. If `None` (the default), this method flips `hidden` to the opposite bool.
 
 ### Other Notes
 This class also implements the ordering magic methods. Only the `value` of the card object is used in determining an order.
 
 Example:
 ```
->>> card_a = Card(3, 'Hearts')
->>> card_b = Card(8, 'Diamonds')
+>>> card_a = Card(3, 'Hearts') # 3 of Hearts
+>>> card_b = Card(8, 'Diamonds') # 8 of Diamonds
 >>> card_a == card_b
 False
 >>> card_a < card_b
 True
->>> card_c = Card(3, 'Spades')
+>>> card_c = Card(3, 'Spades') # 3 of Spades
 >>> card_a == card_c
 True
 ```
@@ -94,7 +93,7 @@ Returns a card object from the `cards` list. If `replacement` is set to `False`,
 Sets the `hidden` attribute for every card in the `cards` list to `True`.
 
 ### `reveal()`
-Sets the `hidden` attribute for every card in the `cards` list to `True`.
+Sets the `hidden` attribute for every card in the `cards` list to `False`.
 
 ### `show()`
 Prints information about each card object in the `cards` list. This calls the `show()` method on each card object.
@@ -106,6 +105,13 @@ Randomizes the order of the `cards` list. This is like shuffling a deck of cards
 This class also defines the `len()` magic method as well as the `+` operation. See the Deck class for examples. 
 
 ## The Deck Class
+
+A standard deck of 52 playing cards. This class extends the `Collection` class, and includes all the attributes from its parent.
+
+### *class* `cards.Deck(cards=None)`
+
+Parameters:
+- **cards** (list or None) - A list of playing cards to be placed in the Deck at construction. If `None` (the default), the deck is constructed with the standard set of 52 playing cards.
 
 Examples:
 ```
@@ -162,195 +168,8 @@ This card is hidden.
 This card is hidden.
 ```
 
-The Deck class describes a deck of playing cards. Because a Deck object inharits from the Collection Class, it only needs two additional methods. One methong, `build`, fills the deck with the 52 standard playing cards. The other method, `reset`, resets the deck with the original 52 playing cards.
+### `build()`
+Adds the 52 standard playing card objects to the deck *without* removing any cards already in the deck. To remove the cards already in the deck, see the `reset()` method.
 
-## Running the Program
-
-The best way (really, the only way) to interact with this program is using the interactive shell and importing the cards module.
-
-```
->>> from cards import *
-```
-
-Once the module in imported, we can create a Card instance and play around a bit.
-
-Note, the `changeHidden` method in the Card class returns the instance that calls it.
-
-```
->>> card = Card(4, 'Hearts')
->>> card.show()
-4 of Hearts
->>> card.changeHidden()
-<cards.Card object at 0x10ba1fe10>
->>> card.show()
-This card is hidden.
-```
-
-We can paly around with a Deck object.
-
-```
->>> deck = Deck()
->>> deck.show()
-Ace of Spades
-2 of Spades
-3 of Spades
-4 of Spades
-5 of Spades
-6 of Spades
-7 of Spades
-8 of Spades
-9 of Spades
-10 of Spades
-Jack of Spades
-Queen of Spades
-King of Spades
-Ace of Hearts
-2 of Hearts
-3 of Hearts
-4 of Hearts
-5 of Hearts
-6 of Hearts
-7 of Hearts
-8 of Hearts
-9 of Hearts
-10 of Hearts
-Jack of Hearts
-Queen of Hearts
-King of Hearts
-Ace of Diamonds
-2 of Diamonds
-3 of Diamonds
-4 of Diamonds
-5 of Diamonds
-6 of Diamonds
-7 of Diamonds
-8 of Diamonds
-9 of Diamonds
-10 of Diamonds
-Jack of Diamonds
-Queen of Diamonds
-King of Diamonds
-Ace of Clubs
-2 of Clubs
-3 of Clubs
-4 of Clubs
-5 of Clubs
-6 of Clubs
-7 of Clubs
-8 of Clubs
-9 of Clubs
-10 of Clubs
-Jack of Clubs
-Queen of Clubs
-King of Clubs
->>> deck.hide()
->>> deck.show()
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
-This card is hidden.
->>> deck.shuffle()
->>> deck.reveal()
->>> deck.show()
-Ace of Hearts
-3 of Spades
-10 of Diamonds
-Queen of Hearts
-Jack of Hearts
-3 of Diamonds
-King of Diamonds
-Queen of Clubs
-5 of Diamonds
-3 of Hearts
-5 of Clubs
-Ace of Spades
-King of Clubs
-10 of Clubs
-4 of Spades
-Ace of Clubs
-2 of Clubs
-4 of Clubs
-Jack of Diamonds
-8 of Diamonds
-2 of Diamonds
-6 of Diamonds
-5 of Spades
-4 of Hearts
-7 of Spades
-9 of Diamonds
-7 of Hearts
-Queen of Spades
-2 of Hearts
-King of Spades
-9 of Spades
-Queen of Diamonds
-6 of Clubs
-4 of Diamonds
-Jack of Spades
-Jack of Clubs
-8 of Spades
-9 of Hearts
-3 of Clubs
-6 of Spades
-8 of Clubs
-2 of Spades
-7 of Diamonds
-9 of Clubs
-10 of Hearts
-Ace of Diamonds
-10 of Spades
-8 of Hearts
-King of Hearts
-5 of Hearts
-6 of Hearts
-7 of Clubs
->>> 
-```
+### `reset()`
+Resets the deck object to a standard deck of 52 playing cards. This removes all card objects from the deck then fills the empty deck with 52 playing cards.
