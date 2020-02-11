@@ -51,7 +51,7 @@ This class also implements the ordering magic methods. Only the `value` of the c
 
 ### Examples:
 
-Creating and using card objects:
+Creating and using a card object:
 ```
 >>> from cards import Card
 >>> card = Card(1, 'Spades') # An ace of Spades 
@@ -77,7 +77,7 @@ True
 
 ## The Collection Class
 
-This class is a parent class for any object whose purpose is to hold cards like a deck of playing cards or a player's hand in a game.
+This class is a parent class for any object whose purpose is to hold cards, for example, a deck of playing cards or a player's hand in a card game.
 
 ### *class* `cards.Collection(cards=None, replacement=False)`
 
@@ -124,7 +124,7 @@ Resets the deck object to a standard deck of 52 playing cards. This removes all 
 ### Examples
 ```
 >>> from cards import *
->>> deck_a = Deck()
+>>> deck_a = Deck() # the deck object starts with 52 playing cards
 >>> len(deck_a)
 52
 
@@ -138,7 +138,7 @@ Jack of Clubs
 Queen of Clubs
 King of Clubs
 
->>> deck_a.shuffle()
+>>> deck_a.shuffle() # the deck can be shuffled
 >>> deck_a.show()
 6 of Clubs
 8 of Diamonds
@@ -151,7 +151,7 @@ King of Clubs
 3 of Clubs
 
 >>> deck_b = Deck()
->>> deck_b.hide()
+>>> deck_b.hide() # all the cards in a deck can be hidden
 >>> deck_b.show()
 This card is hidden.
 This card is hidden.
@@ -159,7 +159,7 @@ This card is hidden.
 This card is hidden.
 This card is hidden.
 
->>> deck_c = deck_a + deck_b
+>>> deck_c = deck_a + deck_b # adding two decks together returns a third deck
 >>> len(deck_c)
 104
 
