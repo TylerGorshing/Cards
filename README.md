@@ -1,5 +1,5 @@
 # Cards
-An OOP learning exsercise in Python.
+An OOP learning excersise in Python.
 
 ### About the Project
 
