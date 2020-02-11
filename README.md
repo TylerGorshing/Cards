@@ -20,17 +20,17 @@ Primarily, I wanted to learn how object oriented programming works in python. My
 
 Like with any learning project, my skills imporved significanly while working on this program, and as such, I can see many areas with flawed code that may or may not create bugs, places where I didn't follow proper conventions layed out in PEP8, or structural flaws that limit how the program can be scaled for use in other applications. 
 
-All that being said, my goal was not to creat a *perfect* program, but rather use the concepts of OOP in python to make a *functional* program, and that's exaclty what I've done. I could spend more time on this program making it come closer to perfection, but I've decided to use what I've learned and move on to other programs.
+All that being said, my goal was not to creat a *perfect* program, but rather use the concepts of OOP in python to make a *functional* program, and that's exaclty what I've done. I could spend more time on this program making it come closer to perfection, but I've decided to use what I've learned and move on to other projects.
 
-## About the Code
+# About the Code
 
 The code for this little program isn’t too complicated. There are a few custom classes each with their own instance varibales and attributes.
 
-### The Card Class
+## The Card Class
 
 This class represents a standard playing card. The card can be hidden from view if needed.
 
-#### *class* `cards.Card(value, suit, hidden=False)`
+### *class* `cards.Card(value, suit, hidden=False)`
 
 Example:
 ```
@@ -49,16 +49,16 @@ Parameters:
 - **hidden** (bool) - If `False` (the default), details aobut the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
 
 
-#### `show()`
+### `show()`
 Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
 
-#### `changeHidden(hidden=none)`
+### `changeHidden(hidden=none)`
 Changes the value of `hidden`. Returns the same card instance that called the method
 
 Parameters:
 - **hidden** (bool or None) - The value that `hidden` is changed to. If `None` (the default), hidden flips to the opposite bool.
 
-#### Other Notes
+### Other Notes
 This class also implements the ordering magic methods. Only the `value` of the card object is used in determining an order.
 
 Example:
@@ -74,38 +74,38 @@ True
 True
 ```
 
-### The Collection Class
+## The Collection Class
 
 This class is a parent class for any object whose purpose is to hold cards like a deck of playing cards or a player's hand in a game.
 
-#### *class* `cards.Collection(cards=None, replacement=False)`
+### *class* `cards.Collection(cards=None, replacement=False)`
 
 Parameters: 
 - **cards** (list or None) - A list of playing cards held by the Collection object. If `None` (the default), then the Collection object is initialized with an empty list to be filled with cards at a later time.
 - **replacement** (bool) - Determines if cards are drawn from the collection with or without replacement. If `False` (the default), then cards are drawn without replacement. Cards are drawn with replacement is replacement is set to `True`.
 
-#### `discard()`
+### `discard()`
 Empties the `cards` list. If there are no more references to any of the card objects, I think they're garbage collected by python.
 
-#### `draw()`
+### `draw()`
 Returns a card object from the `cards` list. If `replacement` is set to `False`, the first card object in the `cards` list is removed and that card is returned. If `replacement` is set to `True`, a random card in the `cards` list is returned *without* removing it from the list.
 
-#### `hide()`
+### `hide()`
 Sets the `hidden` attribute for every card in the `cards` list to `True`.
 
-#### `reveal()`
+### `reveal()`
 Sets the `hidden` attribute for every card in the `cards` list to `True`.
 
-#### `show()`
+### `show()`
 Prints information about each card object in the `cards` list. This calls the `show()` method on each card object.
 
-#### `shuffle()`
+### `shuffle()`
 Randomizes the order of the `cards` list. This is like shuffling a deck of cards.
 
-#### Other Notes
+### Other Notes
 This class also defines the `len()` magic method as well as the `+` operation. See the Deck class for examples. 
 
-### The Deck Class
+## The Deck Class
 
 Examples:
 ```
