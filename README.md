@@ -116,7 +116,7 @@ Parameters:
 - **cards** (list or None) - A list of playing cards to be placed in the Deck at construction. If `None` (the default), the deck is constructed with the standard set of 52 playing cards.
 
 #### `build()`
-Adds the 52 standard playing card objects to the deck *without* removing any cards already in the deck. To remove the cards already in the deck, see the `reset()` method.
+Adds the 52 standard playing card objects to the deck *without* removing any cards already in the deck. To remove the cards already in the deck, see the `reset()` method. This method is called at construction of a new deck object if the `cards` parameter is `None`.
 
 #### `reset()`
 Resets the deck object to a standard deck of 52 playing cards. This removes all card objects from the deck then fills the empty deck with 52 playing cards.
