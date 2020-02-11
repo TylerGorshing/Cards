@@ -1,7 +1,7 @@
 # Cards
 A exercise in learning OOP in Python
 
-## About the Project
+### About the Project
 
 As I continued to learn more and more about programming, I discovered the concept of object oriented programming and decided it would be worth my time to learn those concepts in Python more thoroughly. This project was a fun exercise in just that.
 
