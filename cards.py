@@ -1,13 +1,13 @@
-'''
+"""
 An OOP learning excersie in python.
 
-'''
+"""
 
 import random
 
 
 class Card():
-    '''A playing card object
+    """A playing card object
 
         Parameters
         ----------
@@ -21,7 +21,7 @@ class Card():
         -----------
             hidden : bool
                 If true, the card is "face down" and can't be viewed with the show() method.
-    '''
+    """
 
     def __init__(self, value: int, suit: str, hidden=False):
 
@@ -31,7 +31,7 @@ class Card():
 
     @property
     def value(self):
-        '''Returns the numerical value of the card. Returns None if self.hidden is set to True'''
+        """Returns the numerical value of the card. Returns None if self.hidden is set to True"""
         if not self._hidden:
             return self._value
         else:
@@ -39,7 +39,7 @@ class Card():
 
     @property
     def suit(self):
-        '''Returns the suit of the card. Returns None if self.hidden is set to True'''
+        """Returns the suit of the card. Returns None if self.hidden is set to True"""
         if not self._hidden:
             return self._suit
         else:
@@ -47,7 +47,7 @@ class Card():
 
     @property
     def hidden(self):
-        '''Returns True if the card is hidden, False if the card is not hidden.'''
+        """Returns True if the card is hidden, False if the card is not hidden."""
         return self._hidden
 
     @hidden.setter
@@ -59,9 +59,9 @@ class Card():
         return self
 
     def changeHidden(self, hidden=None):
-        '''Changes the value of hidden. This is like showing a card from a players hand
+        """Changes the value of hidden. This is like showing a card from a players hand
         or revealing a face down card.
-        '''
+        """
         if hidden is None:
             self._hidden = not self._hidden
             return self
@@ -73,7 +73,7 @@ class Card():
             raise TypeError("Must be bool type.")
 
     def show(self):
-        '''Prints the value and suit of the Card object.'''
+        """Prints the value and suit of the Card object."""
 
         if self.hidden:
             print("This card is hidden.")
@@ -90,17 +90,13 @@ class Card():
         else:
             print(f'King of {self.suit}')
 
-    #######################################
-    '''
-    Ordering functions:
+    # Ordering functions:
 
-        These functions define an order on the cards. Note, the order depends entirely
-        on the value of the card and nothing else. Bacause of this, two cards are equal
-        if they have the same value but not necessarly the same suit.
+    #     These functions define an order on the cards. Note, the order depends entirely
+    #     on the value of the card and nothing else. Bacause of this, two cards are equal
+    #     if they have the same value but not necessarly the same suit.
 
-        Card(4, 'Spades') == Cards(4, 'Hearts') will return True
-
-    '''
+    #     Card(4, 'Spades') == Cards(4, 'Hearts') will return True
 
     def __lt__(self, other):
         return self.value < other.value
@@ -122,7 +118,7 @@ class Card():
 
 
 class Collection():
-    '''An object for a collection of cards. This is the base class for a deck of cards or a player's hand.
+    """An object for a collection of cards. This is the base class for a deck of cards or a player's hand.
 
         Attributes:
         ----------
@@ -132,7 +128,7 @@ class Collection():
         replacement : bool
             If True, self.draw() does NOT remove a card object from the collection.
             If False, self.draw() removes a card object from the collection.
-    '''
+    """
 
     def __init__(self, cards=None, replacement=False):
 
@@ -143,38 +139,38 @@ class Collection():
         self.replacement = replacement
 
     def shuffle(self) -> None:
-        '''Randomizes the order of the collection of cards.'''
+        """Randomizes the order of the collection of cards."""
 
         random.shuffle(self.cards)
 
     def reveal(self) -> None:
-        '''Sets the hidden attribut of all card objects to False.
+        """Sets the hidden attribut of all card objects to False.
         This is like showing your hand to another player or looking throuhg a deck of cards.
-        '''
+        """
         for card in self.cards:
             card.hidden = False
 
     def hide(self) -> None:
-        '''Sets the hidden attribute of all card objects to True.
+        """Sets the hidden attribute of all card objects to True.
         Like hiding a card from another player.
-        '''
+        """
         for card in self.cards:
             card.hidden = True
 
     def show(self):
-        '''Prints the value and suit of each card in the collection.'''
+        """Prints the value and suit of each card in the collection."""
 
         for card in self.cards:
             card.show()
 
     def discard(self):
-        '''Empties the entire collection of cards. The Card instances are removed from the program.'''
+        """Empties the entire collection of cards. The Card instances are removed from the program."""
 
         self.cards.clear()
 
     def draw(self, replacement=None) -> Card:
-        '''Returns the first card in the collection.
-        Like drawing a card from a deck or a players hand.'''
+        """Returns the first card in the collection.
+        Like drawing a card from a deck or a players hand."""
 
         if replacement is None:
             replacement = self.replacement
@@ -185,26 +181,26 @@ class Collection():
             return self.cards.pop(0)
 
     def __len__(self) -> int:
-        '''Returns the number of cards in the collection.'''
+        """Returns the number of cards in the collection."""
         return len(self.cards)
 
     def __add__(self, other):
-        '''Defines addition on a collection of cards.
+        """Defines addition on a collection of cards.
 
-        Returns a new collection with all the same cards as self and other.'''
+        Returns a new collection with all the same cards as self and other."""
 
         # type(slef) makes sure the collection object can be subclassed.
         return type(self)(cards=self.cards + other.cards)
 
 
 class Deck(Collection):
-    ''' A deck of standard playing cards.
+    """ A deck of standard playing cards.
 
     A freshly initialized Deck object consists of 52 Card objects with the
     standard suits and values. This can be used as a deck of cards to
     play various games.
 
-    Inharets from the Collection Class.'''
+    Inharets from the Collection Class."""
 
     def __init__(self, cards=None):
 
@@ -213,20 +209,20 @@ class Deck(Collection):
             self.build()
 
     def build(self):
-        '''Creats the 52 cards in a standard deck of playing cards.
+        """Creats the 52 cards in a standard deck of playing cards.
 
         Note
         ----
             This method only adds cards. It does not remove cards from the deck. To remove cards,
             the discard() method should be called from the parent class
-        '''
+        """
 
         for suit in ['Spades', 'Hearts', 'Diamonds', 'Clubs']:
             for value in range(1, 14):
                 self.cards.append(Card(value, suit))
 
     def reset(self):
-        '''Resets the deck to the original state: 52 standard playing cards.'''
+        """Resets the deck to the original state: 52 standard playing cards."""
 
         self.discard()
         self.build()
