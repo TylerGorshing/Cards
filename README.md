@@ -1,5 +1,5 @@
 # Cards
-An OOP learning excersise in Python.
+An OOP learning exercise in Python.
 
 ### About the Project
 
@@ -18,13 +18,13 @@ Primarily, I wanted to learn how object oriented programming works in python. My
 
 ### How to Improve
 
-Like with any learning project, my skills imporved significanly while working on this program, and as such, I can see many areas with flawed code that may or may not create bugs, places where I didn't follow proper conventions layed out in PEP8, or structural flaws that limit how the program can be scaled for use in other applications. 
+Like with any learning project, my skills improved significantly while working on this program, and as such, I can see many areas with flawed code that may or may not create bugs, places where I didn't follow proper conventions laid out in PEP8, or structural flaws that limit how the program can be scaled for use in other applications. 
 
-All that being said, my goal was not to creat a *perfect* program, but rather use the concepts of OOP in python to make a *functional* program, and that's exaclty what I've done. I could spend more time on this program making it come closer to perfection, but I've decided to use what I've learned and move on to other projects.
+All that being said, my goal was not to create a *perfect* program, but rather use the concepts of OOP in python to make a *functional* program, and that's exactly what I've done. I could spend more time on this program making it come closer to perfection, but I've decided to use what I've learned and move on to other projects.
 
 # About the Code
 
-The code for this little program isn’t too complicated. There are a few custom classes each with their own instance varibales and attributes.
+The code for this little program isn’t too complicated. There are a few custom classes each with their own instance variables and attributes.
 
 ## The Card Class
 
@@ -33,18 +33,16 @@ This class represents a standard playing card. The card can be hidden from view 
 ### *class* `cards.Card(value, suit, hidden=False)`
 
 Parameters:
-- **value** (int) - The value of the card. For a standard deck of playing cards, 1 is ace, 11 is Jack, 12 is Queen, and 13 is King.
+- **value** (int) - The value of the card. For a standard deck of playing cards, 1 is Ace, 11 is Jack, 12 is Queen, and 13 is King.
 - **suit** (str) - The suit of the card. Generally, the four suits are `'Spades'`, `'Hearts'`, `'Diamonds'`, and `'Clubs'`.
 - **hidden** (bool) - If `False` (the default), details about the card can be printed to the screen. If `True`, the information about the card cannot be printed to the terminal.
 
 #### `show()`
-Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this methond prints 'This card is hidden.' to the terminal.
+Prints information about the card to the terminal. If `hidden` is False, prints the value and the suit of the card. If `hidden` is True, this method prints 'This card is hidden.' to the terminal.
 
 #### `changeHidden(hidden=none)`
 Changes the value of `hidden`. Returns the same card instance that called the method
 
-Parameters:
-- **hidden** (bool or None) - The value that `hidden` is changed to. If `None` (the default), this method flips `hidden` to the opposite bool.
 
 ### Other Notes
 This class also implements the ordering magic methods. Only the `value` of the card object is used in determining an order. See examples below.
@@ -83,7 +81,10 @@ This class is a parent class for any object whose purpose is to hold cards, for 
 
 Parameters: 
 - **cards** (list or None) - A list of playing cards held by the Collection object. If `None` (the default), then the Collection object is initialized with an empty list to be filled with cards at a later time.
-- **replacement** (bool) - Determines if cards are drawn from the collection with or without replacement. If `False` (the default), then cards are drawn without replacement. Cards are drawn with replacement is replacement is set to `True`.
+- **replacement** (bool) - Determines if cards are drawn from the collection with or without replacement. If `False` (the default), then cards are drawn without replacement. Cards are drawn with replacement if `replacement` is set to `True`.
+
+#### `cards`
+A list of playing card objects. 
 
 #### `discard()`
 Empties the `cards` list. If there are no more references to any of the card objects, I think they're garbage collected by python.
